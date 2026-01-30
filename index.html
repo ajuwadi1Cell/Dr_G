@@ -87,86 +87,101 @@
   <section class="relative overflow-hidden pt-32 lg:pt-40 pb-0">
     <!-- Background Decor -->
     <div class="absolute inset-0 pointer-events-none z-0">
-      <!-- Large Orbital Circles -->
+      <!-- Orbital Ellipses -->
       <svg class="absolute right-[-10%] top-[-10%] w-[90%] h-[120%] text-gold/20" viewBox="0 0 100 100" fill="none"
-        stroke="currentColor" stroke-width="0.5">
-        <circle cx="80" cy="50" r="30" />
-        <circle cx="80" cy="50" r="45" />
+        stroke="currentColor" stroke-width="0.3">
+        <ellipse cx="75" cy="75" rx="55" ry="60" />
+        <ellipse cx="75" cy="75" rx="65" ry="65" />
       </svg>
 
       <!-- Floating Icons -->
-      <!-- Document Icon (Top Left of Phone) -->
-      <div class="absolute top-[15%] left-[50%] lg:left-[45%] bg-blue-100 p-4 rounded-full shadow-lg animate-float"
-        style="animation-delay: 1s;">
+      <!-- Document Icon (Top Left area) -->
+      <div class="absolute top-[22%] bg-blue-100 p-4 rounded-full shadow-lg animate-float"
+        style="left: calc(45% + 50px); animation-delay: 1s;">
         <svg class="w-8 h-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
             d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
         </svg>
       </div>
 
-      <!-- Chat Icon (Top Right of Phone area) -->
-      <div class="absolute top-[25%] right-[10%] lg:right-[15%] bg-sky-200 p-4 rounded-full shadow-lg animate-float"
-        style="animation-delay: 2s;">
-        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-            d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" />
+      <!-- Chat Icon (Above the Phone on inner circle) -->
+      <div class="absolute rounded-full shadow-lg animate-float"
+        style="top: calc(18% - 105px); right: calc(25% - 125px); animation-delay: 2s;">
+        <img src="assets/chatbot_icon.png" alt="Chatbot Icon" class="w-16 h-16 rounded-full" />
+      </div>
+
+      <!-- Security Icon (Near Android Download Button) -->
+      <div class="absolute top-[88%] rounded-full shadow-lg animate-float"
+        style="left: calc(38% + 100px); animation-delay: 1.5s;">
+        <svg class="w-14 h-14" viewBox="0 0 128 128" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <!-- Background circle -->
+          <circle cx="64" cy="64" r="64" fill="#FFE7A3" />
+          <!-- Wider Shield -->
+          <path d="M64 30 C48 34, 40 36, 40 36 v22 c0 18 14 28 24 32 c10-4 24-14 24-32 V36 s-8-2-24-6 Z" fill="none"
+            stroke="#FFB400" stroke-width="6" stroke-linejoin="round" />
+          <!-- Checkmark -->
+          <path d="M52 60 l8 8 l16-16" fill="none" stroke="#FFB400" stroke-width="6" stroke-linecap="round"
+            stroke-linejoin="round" />
         </svg>
       </div>
     </div>
 
-    <div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-16 items-end relative z-10">
+    <div class="max-w-7xl mx-auto px-6 relative z-10">
+      <div class="flex flex-col lg:flex-row items-end">
+        <!-- Text -->
+        <div class="animate-fadeUp pb-20 lg:pb-32 max-w-4xl relative z-20">
+          <p class="text-2xl text-muted leading-none mb-0">1Cell.Ai</p>
+          <h1 class="text-9xl font-normal leading-none mb-0">
+            <span class="bg-gradient-to-r from-primary to-sky-400 bg-clip-text text-transparent">DrG</span><sup
+              class="text-2xl text-gray-300 align-top relative top-2 -ml-1">&reg;</sup>
+          </h1>
+          <h2 class="text-[3.5rem] font-normal text-gold mb-8 leading-none">
+            Your AI Medical Expert
+          </h2>
 
-      <!-- Text -->
-      <div class="animate-fadeUp pb-20 lg:pb-32">
-        <p class="text-2xl text-muted leading-none mb-0">1Cell.Ai</p>
-        <h1 class="text-9xl font-normal leading-none mb-0">
-          <span class="bg-gradient-to-r from-primary to-sky-400 bg-clip-text text-transparent">DrG</span><sup
-            class="text-2xl text-gray-300 align-top relative top-2 -ml-1">&reg;</sup>
-        </h1>
-        <h2 class="text-[3.5rem] font-normal text-gold mb-8 leading-none">
-          Your AI Medical Expert
-        </h2>
+          <p class="font-serif text-[1.375rem] text-muted leading-relaxed max-w-xl mb-5">
+            Download the revolutionary AI-powered virtual doctor mobile app.
+            DrG reads medical reports, analyzes patient data, and answers complex
+            clinical questions with intelligent, evidence-based recommendations —
+            right from your smartphone.
+          </p>
 
-        <p class="font-serif text-[1.375rem] text-muted leading-relaxed max-w-xl mb-5">
-          Download the revolutionary AI-powered virtual doctor mobile app.
-          DrG reads medical reports, analyzes patient data, and answers complex
-          clinical questions with intelligent, evidence-based recommendations —
-          right from your smartphone.
-        </p>
+          <div class="flex flex-wrap gap-5">
+            <button
+              class="flex items-center gap-4 border-2 border-navy px-10 py-6 rounded-xl hover:bg-navy hover:text-white transition duration-300 bg-transparent text-navy font-bold text-xl min-w-[245px] justify-center shadow-sm">
+              <svg class="w-7 h-7" viewBox="0 0 24 24" fill="currentColor">
+                <path
+                  d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z" />
+              </svg>
+              Download for iOS
+            </button>
+            <button
+              class="group flex items-center gap-4 border-2 border-navy px-10 py-6 rounded-xl hover:bg-navy hover:text-white transition duration-300 bg-transparent text-navy font-bold text-xl min-w-[245px] justify-center shadow-sm">
+              <svg class="w-7 h-7" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M6.3 2.2a.6.6 0 0 0-.9.8l2 2.3a.6.6 0 1 0 .9-.8l-2-2.3z" />
+                <path d="M17.7 2.2a.6.6 0 1 1 .9.8l-2 2.3a.6.6 0 1 1-.9-.8l2-2.3z" />
+                <path d="M4 13 a8 8 0 0 1 16 0 v4 H4 Z" />
+                <circle cx="9" cy="11" r="1" class="fill-white group-hover:fill-navy transition-colors duration-300" />
+                <circle cx="15" cy="11" r="1" class="fill-white group-hover:fill-navy transition-colors duration-300" />
+              </svg>
+              Download for Android
+            </button>
+          </div>
+        </div>
 
-        <div class="flex flex-wrap gap-4">
-          <button
-            class="flex items-center gap-3 border border-gray-300 px-6 py-3 rounded-md hover:border-gray-800 transition bg-white text-navy font-semibold min-w-[180px] justify-center shadow-sm">
-            <svg class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
-              <path
-                d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z" />
-            </svg>
-            Download for iOS
-          </button>
-          <button
-            class="flex items-center gap-3 border border-gray-300 px-6 py-3 rounded-md hover:border-gray-800 transition bg-white text-navy font-semibold min-w-[180px] justify-center shadow-sm">
-            <svg class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
-              <path
-                d="M3,20.5V3.5C3,2.91 3.34,2.39 3.84,2.15L13.69,12L3.84,21.85C3.34,21.6 3,21.09 3,20.5M16.81,15.12L6.05,21.34L14.54,12.85L16.81,15.12M20.16,10.81C20.5,11.08 20.75,11.5 20.75,12C20.75,12.5 20.53,12.9 20.18,13.18L17.89,14.5L15.39,12L17.89,9.5L20.16,10.81M6.05,2.66L16.81,8.88L14.54,11.15L6.05,2.66Z" />
-            </svg>
-            Download for Android
-          </button>
+        <!-- Phone mock -->
+        <div class="flex justify-center lg:absolute lg:bottom-0 lg:w-[38%] z-0 pointer-events-none"
+          style="right: calc(1rem - 50px);">
+          <img src="assets/hero_phone.png" alt="DrG App Preview"
+            class="w-[400px] lg:w-full h-auto object-contain drop-shadow-3xl" />
         </div>
       </div>
-
-      <!-- Phone mock -->
-      <div class="flex justify-center lg:justify-end">
-        <img src="assets/hero_phone.png" alt="DrG App Preview"
-          class="w-[500px] h-auto object-contain drop-shadow-3xl" />
-      </div>
-    </div>
   </section>
 
   <!-- FEATURES -->
-  <section class="py-24 bg-white">
+  <section class="pb-24 pt-12 bg-white">
     <div class="max-w-7xl mx-auto px-6 text-center">
-      <span
-        class="inline-block bg-soft text-primary px-5 py-2 rounded-full text-sm mb-6 font-medium tracking-wide uppercase">
+      <span class="inline-block bg-soft text-black px-10 py-3 rounded-full text-lg mb-6 font-normal tracking-wide">
         Features
       </span>
 
@@ -174,7 +189,7 @@
         Powered by Advanced AI
       </h2>
 
-      <p class="font-serif text-muted max-w-4xl mx-auto mb-20 text-xl leading-relaxed">
+      <p class="font-serif text-muted/70 max-w-4xl mx-auto mb-20 text-xl leading-relaxed">
         DrG mobile app leverages state-of-the-art large language models and
         comprehensive medical knowledge bases to read and analyze medical
         reports, answer clinical questions, and provide evidence-based
@@ -184,8 +199,10 @@
       <div class="grid md:grid-cols-3 gap-8 text-left">
         <!-- Card -->
         <div class="bg-navy text-white p-8 rounded-2xl shadow-lg hover:-translate-y-2 transition animate-fadeUp">
-          <div class="mb-4 text-4xl">🧠</div>
-          <h3 class="text-xl font-semibold text-gold mb-3">
+          <div class="w-20 h-20 bg-white rounded-xl flex items-center justify-center mb-6">
+            <img src="assets/feature_diagnosis.png" alt="Diagnosis Icon" class="w-12 h-12 object-contain" />
+          </div>
+          <h3 class="text-2xl font-semibold text-gold mb-1">
             Intelligent Diagnosis
           </h3>
           <p class="font-serif text-sm opacity-90 leading-relaxed">
@@ -195,58 +212,68 @@
           </p>
         </div>
 
-        <div class="bg-soft p-8 rounded-2xl border hover:-translate-y-2 transition animate-fadeUp">
-          <div class="mb-4 text-4xl">💬</div>
-          <h3 class="text-xl font-semibold text-gold mb-3">
+        <div class="bg-white p-8 rounded-2xl border shadow-sm hover:-translate-y-2 transition animate-fadeUp">
+          <div class="w-20 h-20 bg-gray-100/50 rounded-xl flex items-center justify-center mb-6">
+            <img src="assets/feature_accessibility.png" alt="Accessibility Icon" class="w-12 h-12 object-contain" />
+          </div>
+          <h3 class="text-2xl font-semibold text-gold mb-1">
             Mobile Accessibility
           </h3>
           <p class="font-serif text-sm text-muted leading-relaxed">
-            Access healthcare guidance anytime, anywhere from your smartphone.
-            DrG is always in your pocket.
+            Access healthcare guidance anytime, anywhere from your smartphone. DrG is always in your pocket, ready to
+            assist with medical questions.
           </p>
         </div>
 
-        <div class="bg-soft p-8 rounded-2xl border hover:-translate-y-2 transition animate-fadeUp">
-          <div class="mb-4 text-4xl">📷</div>
-          <h3 class="text-xl font-semibold text-gold mb-3">
+        <div class="bg-white p-8 rounded-2xl border shadow-sm hover:-translate-y-2 transition animate-fadeUp">
+          <div class="w-20 h-20 bg-gray-100/50 rounded-xl flex items-center justify-center mb-6">
+            <img src="assets/feature_photo.png" alt="Photo Analysis Icon" class="w-12 h-12 object-contain" />
+          </div>
+          <h3 class="text-2xl font-semibold text-gold mb-1">
             Photo Analysis
           </h3>
           <p class="font-serif text-sm text-muted leading-relaxed">
-            Take photos of medical reports, lab results, and imaging studies for
-            instant AI-powered insights.
+            Take photos of medical reports, lab results, and imaging studies directly with your phone camera for instant
+            AI-powered analysis and insights.
           </p>
         </div>
 
-        <div class="bg-soft p-8 rounded-2xl border hover:-translate-y-2 transition animate-fadeUp">
-          <div class="mb-4 text-4xl">🔒</div>
-          <h3 class="text-xl font-semibold text-gold mb-3">
+        <div class="bg-white p-8 rounded-2xl border shadow-sm hover:-translate-y-2 transition animate-fadeUp">
+          <div class="w-20 h-20 bg-gray-100/50 rounded-xl flex items-center justify-center mb-6">
+            <img src="assets/feature_secure.png" alt="Secure Icon" class="w-12 h-12 object-contain" />
+          </div>
+          <h3 class="text-2xl font-semibold text-gold mb-1">
             Secure & Private
           </h3>
           <p class="font-serif text-sm text-muted leading-relaxed">
-            Enterprise-grade security ensures your medical data remains protected
-            with end-to-end encryption.
+            Enterprise-grade security ensures your medical data remains confidential and protected with end-to-end
+            encryption on your mobile device.
           </p>
         </div>
 
-        <div class="bg-soft p-8 rounded-2xl border hover:-translate-y-2 transition animate-fadeUp">
-          <div class="mb-4 text-4xl">⚡</div>
-          <h3 class="text-xl font-semibold text-gold mb-3">
+        <div class="bg-white p-8 rounded-2xl border shadow-sm hover:-translate-y-2 transition animate-fadeUp">
+          <div class="w-20 h-20 bg-gray-100/50 rounded-xl flex items-center justify-center mb-6">
+            <img src="assets/feature_responses.png" alt="Responses Icon" class="w-12 h-12 object-contain" />
+          </div>
+          <h3 class="text-2xl font-semibold text-gold mb-1">
             Instant Responses
           </h3>
           <p class="font-serif text-sm text-muted leading-relaxed">
-            Get immediate answers to your health questions with lightning-fast AI
-            processing.
+            Get immediate answers to your health questions with lightning-fast AI processing optimized for mobile
+            devices and real-time consultation capabilities.
           </p>
         </div>
 
-        <div class="bg-soft p-8 rounded-2xl border hover:-translate-y-2 transition animate-fadeUp">
-          <div class="mb-4 text-4xl">📄</div>
-          <h3 class="text-xl font-semibold text-gold mb-3">
+        <div class="bg-white p-8 rounded-2xl border shadow-sm hover:-translate-y-2 transition animate-fadeUp">
+          <div class="w-20 h-20 bg-gray-100/50 rounded-xl flex items-center justify-center mb-6">
+            <img src="assets/feature_offline.png" alt="Offline Icon" class="w-12 h-12 object-contain" />
+          </div>
+          <h3 class="text-2xl font-semibold text-gold mb-1">
             Offline Mode
           </h3>
           <p class="font-serif text-sm text-muted leading-relaxed">
-            Access essential medical information and previously analyzed reports
-            even when offline.
+            Access essential medical information and previously analyzed reports even when offline, ensuring healthcare
+            support wherever you are.
           </p>
         </div>
       </div>
@@ -254,7 +281,7 @@
   </section>
 
   <!-- APP SHOWCASE -->
-  <section class="py-24 bg-soft overflow-hidden">
+  <section class="pt-24 pb-12 bg-soft overflow-hidden">
     <div class="max-w-7xl mx-auto px-6 text-center">
       <div class="relative flex justify-center items-center">
         <img src="assets/app_showcase.png" alt="App Screens Features"
@@ -264,21 +291,21 @@
   </section>
 
   <!-- HOW IT WORKS -->
-  <section class="py-20 bg-soft">
+  <section class="pt-10 pb-20 bg-white">
     <div class="max-w-7xl mx-auto px-6 text-center">
 
       <!-- Pill -->
-      <span class="inline-block bg-white text-navy px-5 py-1 rounded-full text-sm mb-6 shadow-sm font-medium">
+      <span class="inline-block bg-soft text-navy px-10 py-3 rounded-full text-lg mb-6 font-medium">
         How it works
       </span>
 
       <!-- Title -->
-      <h2 class="text-5xl font-normal text-gold mb-6">
+      <h2 class="text-6xl font-normal text-gold mb-6">
         How DrG Works
       </h2>
 
       <!-- Subtitle -->
-      <p class="font-serif text-muted max-w-2xl mx-auto mb-20 text-lg leading-relaxed">
+      <p class="font-serif text-muted mx-auto mb-20 text-2xl font-light leading-relaxed">
         Experience seamless AI-powered healthcare in three simple steps on your mobile device
       </p>
 
@@ -289,15 +316,15 @@
         <div class="hidden md:block absolute top-10 left-1/2 w-[85%] h-px bg-gold/40 -translate-x-1/2"></div>
 
         <!-- Step 1 -->
-        <div class="relative animate-fadeUp">
+        <div class="relative animate-fadeUp text-left">
           <div
-            class="mx-auto w-20 h-20 bg-navy text-white rounded-xl flex items-center justify-center text-2xl font-semibold mb-6">
+            class="w-20 h-20 bg-navy text-white rounded-xl flex items-center justify-center text-4xl font-semibold mb-6">
             01
           </div>
-          <h3 class="text-xl font-semibold text-gold mb-4">
+          <h3 class="text-3xl font-semibold text-gold mb-4">
             Download & Open App
           </h3>
-          <p class="font-serif text-muted text-sm leading-relaxed max-w-sm mx-auto">
+          <p class="font-serif text-muted text-lg leading-relaxed max-w-sm">
             Download DrG from the App Store or Google Play, create your secure account,
             and start uploading medical reports or asking clinical questions through
             the intuitive mobile interface.
@@ -305,30 +332,30 @@
         </div>
 
         <!-- Step 2 -->
-        <div class="relative animate-fadeUp [animation-delay:150ms]">
+        <div class="relative animate-fadeUp [animation-delay:150ms] text-left">
           <div
-            class="mx-auto w-20 h-20 bg-navy text-white rounded-xl flex items-center justify-center text-2xl font-semibold mb-6">
+            class="w-20 h-20 bg-navy text-white rounded-xl flex items-center justify-center text-4xl font-semibold mb-6">
             02
           </div>
-          <h3 class="text-xl font-semibold text-gold mb-4">
+          <h3 class="text-3xl font-semibold text-gold mb-4">
             AI Analysis
           </h3>
-          <p class="font-serif text-muted text-sm leading-relaxed max-w-sm mx-auto">
+          <p class="font-serif text-muted text-lg leading-relaxed max-w-sm">
             Our advanced mobile-optimized AI processes your information against vast
             medical databases to provide accurate insights directly on your smartphone.
           </p>
         </div>
 
         <!-- Step 3 -->
-        <div class="relative animate-fadeUp [animation-delay:300ms]">
+        <div class="relative animate-fadeUp [animation-delay:300ms] text-left">
           <div
-            class="mx-auto w-20 h-20 bg-navy text-white rounded-xl flex items-center justify-center text-2xl font-semibold mb-6">
+            class="w-20 h-20 bg-navy text-white rounded-xl flex items-center justify-center text-4xl font-semibold mb-6">
             03
           </div>
-          <h3 class="text-xl font-semibold text-gold mb-4">
+          <h3 class="text-3xl font-semibold text-gold mb-4">
             Get Mobile Guidance
           </h3>
-          <p class="font-serif text-muted text-sm leading-relaxed max-w-sm mx-auto">
+          <p class="font-serif text-muted text-lg leading-relaxed max-w-sm">
             Receive evidence-based clinical recommendations, differential diagnoses,
             and treatment protocols instantly on your mobile device to support your
             decision-making.
@@ -340,13 +367,13 @@
   </section>
 
   <!-- BENEFITS HEADER -->
-  <section class="py-20 bg-white">
+  <section class="pt-0 pb-20 bg-white">
     <div class="max-w-4xl mx-auto px-6 text-center">
-      <span class="inline-block bg-soft text-navy px-5 py-1 rounded-full text-sm mb-6 font-medium">
+      <span class="inline-block bg-soft text-navy px-10 py-3 rounded-full text-lg mb-6 font-medium">
         Benefits
       </span>
 
-      <h2 class="text-5xl font-semibold text-gold leading-tight mb-16">
+      <h2 class="text-6xl font-normal text-gold leading-tight mb-16">
         Why Healthcare Professionals<br class="hidden md:block" />
         choose DrG Mobile?
       </h2>
@@ -360,10 +387,10 @@
         <div class="mb-6 h-16 flex items-center">
           <img src="assets/icon_analysis.png" alt="Analysis" class="w-16 h-16 object-contain" />
         </div>
-        <h3 class="text-xl font-semibold text-navy mb-4">
+        <h3 class="text-3xl font-medium text-navy mb-2">
           Mobile Report Analysis
         </h3>
-        <p class="font-serif text-sm text-muted leading-relaxed">
+        <p class="font-serif text-medium text-muted leading-relaxed">
           Take photos of medical reports, lab results, and imaging studies with your phone camera for instant AI-powered
           analysis and clinical interpretation.
         </p>
@@ -374,10 +401,10 @@
         <div class="mb-6 h-16 flex items-center">
           <img src="assets/icon_clinical.png" alt="Clinical" class="w-16 h-16 object-contain" />
         </div>
-        <h3 class="text-xl font-semibold text-navy mb-4">
+        <h3 class="text-3xl font-medium text-navy mb-2">
           Pocket-Sized Clinical Support
         </h3>
-        <p class="font-serif text-sm text-muted leading-relaxed">
+        <p class="font-serif text-lg text-muted leading-relaxed">
           Get immediate access to evidence-based medical guidance and treatment protocols during patient consultations,
           right from your smartphone.
         </p>
@@ -388,10 +415,10 @@
         <div class="mb-6 h-16 flex items-center">
           <img src="assets/icon_sync.png" alt="Sync" class="w-16 h-16 object-contain transform scale-125 origin-left" />
         </div>
-        <h3 class="text-xl font-semibold text-navy mb-4">
+        <h3 class="text-3xl font-medium text-navy mb-2">
           Cross-Platform Sync
         </h3>
-        <p class="font-serif text-sm text-muted leading-relaxed">
+        <p class="font-serif text-lg text-muted leading-relaxed">
           Seamlessly sync your data across iOS and Android devices, ensuring your medical insights are always accessible
           wherever you are.
         </p>
@@ -402,10 +429,10 @@
         <div class="mb-6 h-16 flex items-center">
           <img src="assets/icon_global.png" alt="Global" class="w-16 h-16 object-contain" />
         </div>
-        <h3 class="text-xl font-semibold text-navy mb-4">
+        <h3 class="text-3xl font-medium text-navy mb-2">
           Global Mobile Access
         </h3>
-        <p class="font-serif text-sm text-muted leading-relaxed">
+        <p class="font-serif text-lg text-muted leading-relaxed">
           Bridge healthcare gaps in underserved areas with AI-powered medical expertise accessible from any smartphone,
           anywhere in the world.
         </p>
@@ -415,62 +442,57 @@
   </section>
 
   <!-- CTA SECTION -->
-  <section class="py-20 bg-gradient-to-br from-blue-100 to-blue-200">
-    <div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-12 items-center">
+  <section class="pt-4 pb-24 bg-white px-6">
+    <div class="max-w-7xl mx-auto">
+      <div
+        class="bg-gradient-to-r from-[#B9D9EB] to-[#92C5E7] rounded-[48px] px-12 lg:px-24 py-16 lg:py-16 relative overflow-hidden">
+        <div class="grid lg:grid-cols-2 gap-12 items-center relative z-10">
+          <!-- Text Content -->
+          <div>
+            <span
+              class="inline-flex items-center gap-2 bg-white text-navy px-5 py-2 rounded-full text-lg mb-4 shadow-sm font-medium">
+              <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="#D9A21B" stroke-width="3"
+                stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="4 18 10 12 14 14 20 6"></polyline>
+              </svg>
+              Grow with us
+            </span>
 
-      <!-- Text Content -->
-      <div>
-        <span class="inline-block bg-white text-navy px-4 py-2 rounded-full text-sm mb-6 font-medium">
-          📊 Grow with us
-        </span>
+            <h2 class="text-6xl font-normal text-black mb-4 leading-tight whitespace-nowrap">
+              Ready to Download DrG?
+            </h2>
 
-        <h2 class="text-5xl font-normal text-navy mb-6 leading-tight">
-          Ready to Download DrG?
-        </h2>
+            <p class="font-serif text-xl text-navy/80 mb-8 leading-relaxed max-w-xl">
+              Join thousands of healthcare professionals who rely on DrG mobile app for intelligent clinical decision
+              support and enhanced patient care.
+            </p>
 
-        <p class="font-serif text-lg text-gray-700 mb-10 leading-relaxed max-w-xl">
-          Join thousands of healthcare professionals who rely on DrG mobile app for intelligent clinical decision
-          support and enhanced patient care.
-        </p>
-
-        <div class="flex flex-wrap gap-4">
-          <a href="#"
-            class="inline-flex items-center gap-3 bg-black text-white px-8 py-4 rounded-xl hover:bg-gray-800 transition">
-            <svg class="w-8 h-8" viewBox="0 0 24 24" fill="currentColor">
-              <path
-                d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z" />
-            </svg>
-            <div class="text-left">
-              <div class="text-xs">Download for iOS</div>
-              <div class="text-lg font-semibold">App Store</div>
+            <div class="flex items-center gap-4">
+              <a href="#" class="hover:opacity-80 transition">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/3/3c/Download_on_the_App_Store_Badge.svg"
+                  alt="Download on the App Store" class="h-20 w-auto" />
+              </a>
+              <a href="#" class="hover:opacity-80 transition">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg"
+                  alt="Get it on Google Play" class="h-20 w-auto" />
+              </a>
             </div>
-          </a>
+          </div>
 
-          <a href="#"
-            class="inline-flex items-center gap-3 bg-black text-white px-8 py-4 rounded-xl hover:bg-gray-800 transition">
-            <svg class="w-8 h-8" viewBox="0 0 24 24" fill="currentColor">
-              <path
-                d="M3,20.5V3.5C3,2.91 3.34,2.39 3.84,2.15L13.69,12L3.84,21.85C3.34,21.6 3,21.09 3,20.5M16.81,15.12L6.05,21.34L14.54,12.85L16.81,15.12M20.16,10.81C20.5,11.08 20.75,11.5 20.75,12C20.75,12.5 20.53,12.9 20.18,13.18L17.89,14.5L15.39,12L17.89,9.5L20.16,10.81M6.05,2.66L16.81,8.88L14.54,11.15L6.05,2.66Z" />
-            </svg>
-            <div class="text-left">
-              <div class="text-xs">Get it on</div>
-              <div class="text-lg font-semibold">Google Play</div>
-            </div>
-          </a>
+          <!-- Phone Mockup -->
+          <div class="relative flex justify-center lg:justify-end lg:absolute lg:-right-8 lg:bottom-[-64px] lg:w-[42%]">
+            <img src="assets/hand_holding_phone.png" alt="DrG App Preview"
+              class="w-full h-auto object-contain drop-shadow-3xl" />
+          </div>
         </div>
       </div>
-
-      <!-- Phone Image -->
-      <div class="relative flex justify-center lg:justify-end">
-        <img src="assets/hand_holding_phone.png" alt="Download DrG"
-          class="max-h-[600px] w-auto object-contain drop-shadow-2xl" />
-      </div>
-
     </div>
   </section>
 
+
+
   <!-- FOOTER -->
-  <footer class="bg-white border-t border-gray-200">
+  <footer class="bg-soft border-t border-soft">
     <div class="max-w-7xl mx-auto px-6 py-16">
       <div class="grid md:grid-cols-4 gap-12">
 
@@ -528,7 +550,7 @@
                   <div class="font-semibold text-3xl leading-none flex items-start">
                     1Cell.AI<sup class="text-xs ml-0.5 mt-1 font-normal opacity-70">TM</sup>
                   </div>
-                  <div class="text-xl text-white leading-tight mt-1">AI-Powered Precision Oncology</div>
+                  <div class="text-xs text-white leading-tight mt-1">AI-Powered Precision Oncology</div>
                 </div>
               </div>
               <address class="text-xl text-white not-italic leading-relaxed">
@@ -612,7 +634,7 @@
           </div>
 
           <!-- Copyright -->
-          <div class="mt-6 pt-4 text-right text-medium text-white">
+          <div class="mt-0 pt-0 text-right text-medium text-white">
             © Copyright 1Cell.Ai 2026 |
             <a href="#" class="hover:text-white transition">Terms & Conditions</a> |
             <a href="#" class="hover:text-white transition">Privacy Policy</a>

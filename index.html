@@ -48,9 +48,14 @@
       }
     }
   </script>
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+  </style>
 </head>
 
-<body class="bg-soft text-navy font-sans">
+<body id="home" class="bg-soft text-navy font-sans">
 
   <!-- NAVBAR -->
   <header class="sticky top-0 z-50 bg-white/90 backdrop-blur-md shadow-sm transition-all duration-300">
@@ -64,10 +69,10 @@
       </div>
 
       <nav class="hidden md:flex gap-12 text-lg font-light ml-24">
-        <a href="#" class="text-gold">Home</a>
-        <a href="#" class="hover:text-primary">Features</a>
-        <a href="#" class="hover:text-primary">How it works</a>
-        <a href="#" class="hover:text-primary">Benefits</a>
+        <a href="#home" class="text-gold">Home</a>
+        <a href="#features" class="hover:text-primary">Features</a>
+        <a href="#how-it-works" class="hover:text-primary">How it works</a>
+        <a href="#benefits" class="hover:text-primary">Benefits</a>
       </nav>
 
       <button
@@ -84,7 +89,7 @@
   </header>
 
   <!-- HERO -->
-  <section class="relative overflow-hidden pt-32 lg:pt-40 pb-0">
+  <section class="scroll-mt-24 relative overflow-hidden pt-32 lg:pt-40 pb-0">
     <!-- Background Decor -->
     <div class="absolute inset-0 pointer-events-none z-0">
       <!-- Orbital Ellipses -->
@@ -179,7 +184,7 @@
   </section>
 
   <!-- FEATURES -->
-  <section class="pb-24 pt-12 bg-white">
+  <section id="features" class="scroll-mt-24 pb-24 pt-12 bg-white">
     <div class="max-w-7xl mx-auto px-6 text-center">
       <span class="inline-block bg-soft text-black px-10 py-3 rounded-full text-lg mb-6 font-normal tracking-wide">
         Features
@@ -291,7 +296,7 @@
   </section>
 
   <!-- HOW IT WORKS -->
-  <section class="pt-10 pb-20 bg-white">
+  <section id="how-it-works" class="scroll-mt-24 pt-10 pb-20 bg-white">
     <div class="max-w-7xl mx-auto px-6 text-center">
 
       <!-- Pill -->
@@ -367,7 +372,7 @@
   </section>
 
   <!-- BENEFITS HEADER -->
-  <section class="pt-0 pb-20 bg-white">
+  <section id="benefits" class="scroll-mt-40 pt-0 pb-20 bg-white">
     <div class="max-w-4xl mx-auto px-6 text-center">
       <span class="inline-block bg-soft text-navy px-10 py-3 rounded-full text-lg mb-6 font-medium">
         Benefits

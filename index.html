@@ -32,7 +32,9 @@
           },
           animation: {
             fadeUp: 'fadeUp 0.8s ease-out both',
-            float: 'float 6s ease-in-out infinite'
+            float: 'float 6s ease-in-out infinite',
+            bounceCustom: 'bounceCustom 2s infinite',
+            reveal: 'reveal 1s ease-out both'
           },
           keyframes: {
             fadeUp: {
@@ -42,6 +44,15 @@
             float: {
               '0%, 100%': { transform: 'translateY(0)' },
               '50%': { transform: 'translateY(-12px)' }
+            },
+            bounceCustom: {
+              '0%, 20%, 50%, 80%, 100%': { transform: 'translateY(0)' },
+              '40%': { transform: 'translateY(-10px)' },
+              '60%': { transform: 'translateY(-5px)' }
+            },
+            reveal: {
+              '0%': { opacity: 0, transform: 'translateY(30px)' },
+              '100%': { opacity: 1, transform: 'translateY(0)' }
             }
           }
         }
@@ -52,13 +63,126 @@
     html {
       scroll-behavior: smooth;
     }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 1s ease-out;
+    }
+
+    .reveal-left {
+      opacity: 0;
+      transform: translateX(-30px);
+      transition: all 1s ease-out;
+    }
+
+    .reveal-right {
+      opacity: 0;
+      transform: translateX(30px);
+      transition: all 1s ease-out;
+    }
+
+    .reveal.active,
+    .reveal-left.active,
+    .reveal-right.active {
+      opacity: 1;
+      transform: translate(0, 0);
+    }
+
+    .delay-100 {
+      transition-delay: 100ms;
+    }
+
+    .delay-200 {
+      transition-delay: 200ms;
+    }
+
+    .delay-300 {
+      transition-delay: 300ms;
+    }
+
+    .delay-400 {
+      transition-delay: 400ms;
+    }
+
+    .delay-500 {
+      transition-delay: 500ms;
+    }
+
+    .btn-glow:hover {
+      box-shadow: 0 0 20px rgba(47, 111, 237, 0.4);
+    }
+
+    .feature-card:hover .feature-icon {
+      transform: scale(1.1) rotate(5deg);
+    }
+
+    /* Hero Landing Animations */
+    @keyframes heroSectionFadeUp {
+      0% {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes phoneSlideIn {
+      0% {
+        opacity: 0;
+        transform: translateX(50px);
+      }
+
+      100% {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    .hero-animate {
+      opacity: 0;
+      animation: heroSectionFadeUp 1s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+    }
+
+    .phone-animate {
+      opacity: 0;
+      animation: phoneSlideIn 1.2s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+    }
+
+    .hero-delay-1 {
+      animation-delay: 0.1s;
+    }
+
+    .hero-delay-2 {
+      animation-delay: 0.3s;
+    }
+
+    .hero-delay-3 {
+      animation-delay: 0.5s;
+    }
+
+    .hero-delay-4 {
+      animation-delay: 0.7s;
+    }
+
+    .hero-delay-5 {
+      animation-delay: 0.9s;
+    }
+
+    .hero-delay-6 {
+      animation-delay: 1.1s;
+    }
   </style>
 </head>
 
 <body id="home" class="bg-soft text-navy font-sans">
 
   <!-- NAVBAR -->
-  <header class="sticky top-0 z-50 bg-white/90 backdrop-blur-md shadow-sm transition-all duration-300">
+  <header
+    class="sticky top-0 z-50 bg-white/90 backdrop-blur-md shadow-sm transition-all duration-300 animate-landFade [animation-delay:800ms]">
     <div class="max-w-7xl mx-auto flex items-center justify-between px-6 py-7">
       <div class="flex flex-col leading-none">
         <span class="text-[8px] text-muted font-sans tracking-wider uppercase font-semibold">1Cell.Ai</span>
@@ -75,7 +199,7 @@
         <a href="#benefits" class="hover:text-primary">Benefits</a>
       </nav>
 
-      <button
+      <a href="#cta"
         class="group border border-navy px-8 py-2.5 rounded-full text-base font-normal text-navy bg-transparent hover:bg-navy hover:text-white transition-all duration-300 flex items-center justify-center min-w-[170px]">
         Download
         <div
@@ -84,7 +208,7 @@
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
           </svg>
         </div>
-      </button>
+      </a>
     </div>
   </header>
 
@@ -101,8 +225,8 @@
 
       <!-- Floating Icons -->
       <!-- Document Icon (Top Left area) -->
-      <div class="absolute top-[22%] bg-blue-100 p-4 rounded-full shadow-lg animate-float"
-        style="left: calc(45% + 50px); animation-delay: 1s;">
+      <div class="absolute top-[22%] bg-blue-100 p-4 rounded-full shadow-lg animate-float hero-animate hero-delay-4"
+        style="left: calc(45% + 50px);">
         <svg class="w-8 h-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
             d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
@@ -110,14 +234,14 @@
       </div>
 
       <!-- Chat Icon (Above the Phone on inner circle) -->
-      <div class="absolute rounded-full shadow-lg animate-float"
-        style="top: calc(18% - 105px); right: calc(25% - 125px); animation-delay: 2s;">
+      <div class="absolute rounded-full shadow-lg animate-float hero-animate hero-delay-5"
+        style="top: calc(18% - 105px); right: calc(25% - 125px);">
         <img src="assets/chatbot_icon.png" alt="Chatbot Icon" class="w-16 h-16 rounded-full" />
       </div>
 
       <!-- Security Icon (Near Android Download Button) -->
-      <div class="absolute top-[88%] rounded-full shadow-lg animate-float"
-        style="left: calc(38% + 100px); animation-delay: 1.5s;">
+      <div class="absolute top-[88%] rounded-full shadow-lg animate-float hero-animate hero-delay-6"
+        style="left: calc(38% + 100px);">
         <svg class="w-14 h-14" viewBox="0 0 128 128" fill="none" xmlns="http://www.w3.org/2000/svg">
           <!-- Background circle -->
           <circle cx="64" cy="64" r="64" fill="#FFE7A3" />
@@ -134,34 +258,34 @@
     <div class="max-w-7xl mx-auto px-6 relative z-10">
       <div class="flex flex-col lg:flex-row items-end">
         <!-- Text -->
-        <div class="animate-fadeUp pb-20 lg:pb-32 max-w-4xl relative z-20">
-          <p class="text-2xl text-muted leading-none mb-0">1Cell.Ai</p>
-          <h1 class="text-9xl font-normal leading-none mb-0">
+        <div class="pb-20 lg:pb-32 max-w-4xl relative z-20">
+          <p class="text-2xl text-muted leading-none mb-0 hero-animate">1Cell.Ai</p>
+          <h1 class="text-9xl font-normal leading-none mb-0 hero-animate hero-delay-1">
             <span class="bg-gradient-to-r from-primary to-sky-400 bg-clip-text text-transparent">DrG</span><sup
               class="text-2xl text-gray-300 align-top relative top-2 -ml-1">&reg;</sup>
           </h1>
-          <h2 class="text-[3.5rem] font-normal text-gold mb-8 leading-none">
+          <h2 class="text-[3.5rem] font-normal text-gold mb-8 leading-none hero-animate hero-delay-2">
             Your AI Medical Expert
           </h2>
 
-          <p class="font-serif text-[1.375rem] text-muted leading-relaxed max-w-xl mb-5">
+          <p class="font-serif text-[1.375rem] text-muted leading-relaxed max-w-xl mb-5 hero-animate hero-delay-3">
             Download the revolutionary AI-powered virtual doctor mobile app.
             DrG reads medical reports, analyzes patient data, and answers complex
             clinical questions with intelligent, evidence-based recommendations —
             right from your smartphone.
           </p>
 
-          <div class="flex flex-wrap gap-5">
-            <button
-              class="flex items-center gap-4 border-2 border-navy px-10 py-6 rounded-xl hover:bg-navy hover:text-white transition duration-300 bg-transparent text-navy font-bold text-xl min-w-[245px] justify-center shadow-sm">
+          <div class="flex flex-wrap gap-5 hero-animate hero-delay-4">
+            <a href="https://apps.apple.com/us/app/dr-g/id6756027530" target="_blank"
+              class="btn-glow flex items-center gap-4 border-2 border-navy px-10 py-6 rounded-xl hover:bg-navy hover:text-white transform hover:scale-[1.03] transition-all duration-300 bg-transparent text-navy font-bold text-xl min-w-[245px] justify-center shadow-sm">
               <svg class="w-7 h-7" viewBox="0 0 24 24" fill="currentColor">
                 <path
                   d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z" />
               </svg>
-              Download for iOS
-            </button>
-            <button
-              class="group flex items-center gap-4 border-2 border-navy px-10 py-6 rounded-xl hover:bg-navy hover:text-white transition duration-300 bg-transparent text-navy font-bold text-xl min-w-[245px] justify-center shadow-sm">
+              <span>Download for iOS</span>
+            </a>
+            <a href="https://play.google.com/store/apps/details?id=com.onecellai.drg&hl=en_IN" target="_blank"
+              class="btn-glow group flex items-center gap-4 border-2 border-navy px-10 py-6 rounded-xl hover:bg-navy hover:text-white transform hover:scale-[1.03] transition-all duration-300 bg-transparent text-navy font-bold text-xl min-w-[245px] justify-center shadow-sm">
               <svg class="w-7 h-7" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M6.3 2.2a.6.6 0 0 0-.9.8l2 2.3a.6.6 0 1 0 .9-.8l-2-2.3z" />
                 <path d="M17.7 2.2a.6.6 0 1 1 .9.8l-2 2.3a.6.6 0 1 1-.9-.8l2-2.3z" />
@@ -169,32 +293,36 @@
                 <circle cx="9" cy="11" r="1" class="fill-white group-hover:fill-navy transition-colors duration-300" />
                 <circle cx="15" cy="11" r="1" class="fill-white group-hover:fill-navy transition-colors duration-300" />
               </svg>
-              Download for Android
-            </button>
+              <span>Download for Android</span>
+            </a>
           </div>
         </div>
 
         <!-- Phone mock -->
-        <div class="flex justify-center lg:absolute lg:bottom-0 lg:w-[38%] z-0 pointer-events-none"
+        <div
+          class="flex justify-center lg:absolute lg:bottom-0 lg:w-[38%] z-0 pointer-events-none phone-animate hero-delay-1"
           style="right: calc(1rem - 50px);">
           <img src="assets/hero_phone.png" alt="DrG App Preview"
             class="w-[400px] lg:w-full h-auto object-contain drop-shadow-3xl" />
         </div>
+
+
       </div>
   </section>
 
   <!-- FEATURES -->
   <section id="features" class="scroll-mt-24 pb-24 pt-12 bg-white">
     <div class="max-w-7xl mx-auto px-6 text-center">
-      <span class="inline-block bg-soft text-black px-10 py-3 rounded-full text-lg mb-6 font-normal tracking-wide">
+      <span
+        class="inline-block bg-soft text-black px-10 py-3 rounded-full text-lg mb-6 font-normal tracking-wide reveal">
         Features
       </span>
 
-      <h2 class="text-6xl font-normal text-gold mb-8">
+      <h2 class="text-6xl font-normal text-gold mb-8 reveal">
         Powered by Advanced AI
       </h2>
 
-      <p class="font-serif text-muted/70 max-w-4xl mx-auto mb-20 text-xl leading-relaxed">
+      <p class="font-serif text-muted/70 max-w-4xl mx-auto mb-20 text-xl leading-relaxed reveal">
         DrG mobile app leverages state-of-the-art large language models and
         comprehensive medical knowledge bases to read and analyze medical
         reports, answer clinical questions, and provide evidence-based
@@ -203,8 +331,10 @@
 
       <div class="grid md:grid-cols-3 gap-8 text-left">
         <!-- Card -->
-        <div class="bg-navy text-white p-8 rounded-2xl shadow-lg hover:-translate-y-2 transition animate-fadeUp">
-          <div class="w-20 h-20 bg-white rounded-xl flex items-center justify-center mb-6">
+        <div
+          class="feature-card bg-navy text-white p-8 rounded-2xl shadow-lg hover:-translate-y-2 transition animate-fadeUp reveal">
+          <div
+            class="feature-icon w-20 h-20 bg-white rounded-xl flex items-center justify-center mb-6 transition-transform duration-300">
             <img src="assets/feature_diagnosis.png" alt="Diagnosis Icon" class="w-12 h-12 object-contain" />
           </div>
           <h3 class="text-2xl font-semibold text-gold mb-1">
@@ -217,8 +347,10 @@
           </p>
         </div>
 
-        <div class="bg-white p-8 rounded-2xl border shadow-sm hover:-translate-y-2 transition animate-fadeUp">
-          <div class="w-20 h-20 bg-gray-100/50 rounded-xl flex items-center justify-center mb-6">
+        <div
+          class="feature-card bg-white p-8 rounded-2xl border shadow-sm hover:-translate-y-2 transition animate-fadeUp reveal">
+          <div
+            class="feature-icon w-20 h-20 bg-gray-100/50 rounded-xl flex items-center justify-center mb-6 transition-transform duration-300">
             <img src="assets/feature_accessibility.png" alt="Accessibility Icon" class="w-12 h-12 object-contain" />
           </div>
           <h3 class="text-2xl font-semibold text-gold mb-1">
@@ -230,8 +362,10 @@
           </p>
         </div>
 
-        <div class="bg-white p-8 rounded-2xl border shadow-sm hover:-translate-y-2 transition animate-fadeUp">
-          <div class="w-20 h-20 bg-gray-100/50 rounded-xl flex items-center justify-center mb-6">
+        <div
+          class="feature-card bg-white p-8 rounded-2xl border shadow-sm hover:-translate-y-2 transition animate-fadeUp reveal">
+          <div
+            class="feature-icon w-20 h-20 bg-gray-100/50 rounded-xl flex items-center justify-center mb-6 transition-transform duration-300">
             <img src="assets/feature_photo.png" alt="Photo Analysis Icon" class="w-12 h-12 object-contain" />
           </div>
           <h3 class="text-2xl font-semibold text-gold mb-1">
@@ -243,8 +377,10 @@
           </p>
         </div>
 
-        <div class="bg-white p-8 rounded-2xl border shadow-sm hover:-translate-y-2 transition animate-fadeUp">
-          <div class="w-20 h-20 bg-gray-100/50 rounded-xl flex items-center justify-center mb-6">
+        <div
+          class="feature-card bg-white p-8 rounded-2xl border shadow-sm hover:-translate-y-2 transition animate-fadeUp reveal">
+          <div
+            class="feature-icon w-20 h-20 bg-gray-100/50 rounded-xl flex items-center justify-center mb-6 transition-transform duration-300">
             <img src="assets/feature_secure.png" alt="Secure Icon" class="w-12 h-12 object-contain" />
           </div>
           <h3 class="text-2xl font-semibold text-gold mb-1">
@@ -256,8 +392,10 @@
           </p>
         </div>
 
-        <div class="bg-white p-8 rounded-2xl border shadow-sm hover:-translate-y-2 transition animate-fadeUp">
-          <div class="w-20 h-20 bg-gray-100/50 rounded-xl flex items-center justify-center mb-6">
+        <div
+          class="feature-card bg-white p-8 rounded-2xl border shadow-sm hover:-translate-y-2 transition animate-fadeUp reveal">
+          <div
+            class="feature-icon w-20 h-20 bg-gray-100/50 rounded-xl flex items-center justify-center mb-6 transition-transform duration-300">
             <img src="assets/feature_responses.png" alt="Responses Icon" class="w-12 h-12 object-contain" />
           </div>
           <h3 class="text-2xl font-semibold text-gold mb-1">
@@ -269,8 +407,10 @@
           </p>
         </div>
 
-        <div class="bg-white p-8 rounded-2xl border shadow-sm hover:-translate-y-2 transition animate-fadeUp">
-          <div class="w-20 h-20 bg-gray-100/50 rounded-xl flex items-center justify-center mb-6">
+        <div
+          class="feature-card bg-white p-8 rounded-2xl border shadow-sm hover:-translate-y-2 transition animate-fadeUp reveal">
+          <div
+            class="feature-icon w-20 h-20 bg-gray-100/50 rounded-xl flex items-center justify-center mb-6 transition-transform duration-300">
             <img src="assets/feature_offline.png" alt="Offline Icon" class="w-12 h-12 object-contain" />
           </div>
           <h3 class="text-2xl font-semibold text-gold mb-1">
@@ -300,17 +440,17 @@
     <div class="max-w-7xl mx-auto px-6 text-center">
 
       <!-- Pill -->
-      <span class="inline-block bg-soft text-navy px-10 py-3 rounded-full text-lg mb-6 font-medium">
+      <span class="inline-block bg-soft text-navy px-10 py-3 rounded-full text-lg mb-6 font-medium reveal">
         How it works
       </span>
 
       <!-- Title -->
-      <h2 class="text-6xl font-normal text-gold mb-6">
+      <h2 class="text-6xl font-normal text-gold mb-6 reveal delay-100">
         How DrG Works
       </h2>
 
       <!-- Subtitle -->
-      <p class="font-serif text-muted mx-auto mb-20 text-2xl font-light leading-relaxed">
+      <p class="font-serif text-muted mx-auto mb-20 text-2xl font-light leading-relaxed reveal delay-200">
         Experience seamless AI-powered healthcare in three simple steps on your mobile device
       </p>
 
@@ -321,7 +461,7 @@
         <div class="hidden md:block absolute top-10 left-1/2 w-[85%] h-px bg-gold/40 -translate-x-1/2"></div>
 
         <!-- Step 1 -->
-        <div class="relative animate-fadeUp text-left">
+        <div class="relative text-left reveal delay-300">
           <div
             class="w-20 h-20 bg-navy text-white rounded-xl flex items-center justify-center text-4xl font-semibold mb-6">
             01
@@ -337,7 +477,7 @@
         </div>
 
         <!-- Step 2 -->
-        <div class="relative animate-fadeUp [animation-delay:150ms] text-left">
+        <div class="relative text-left reveal delay-400">
           <div
             class="w-20 h-20 bg-navy text-white rounded-xl flex items-center justify-center text-4xl font-semibold mb-6">
             02
@@ -352,7 +492,7 @@
         </div>
 
         <!-- Step 3 -->
-        <div class="relative animate-fadeUp [animation-delay:300ms] text-left">
+        <div class="relative text-left reveal delay-500">
           <div
             class="w-20 h-20 bg-navy text-white rounded-xl flex items-center justify-center text-4xl font-semibold mb-6">
             03
@@ -388,7 +528,7 @@
     <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 lg:grid-cols-4 gap-6">
 
       <!-- Card 1 -->
-      <div class="bg-gray-50 p-8 rounded-2xl">
+      <div class="bg-gray-50 p-8 rounded-2xl reveal">
         <div class="mb-6 h-16 flex items-center">
           <img src="assets/icon_analysis.png" alt="Analysis" class="w-16 h-16 object-contain" />
         </div>
@@ -402,7 +542,7 @@
       </div>
 
       <!-- Card 2 -->
-      <div class="bg-blue-50 p-8 rounded-2xl">
+      <div class="bg-blue-50 p-8 rounded-2xl reveal delay-100">
         <div class="mb-6 h-16 flex items-center">
           <img src="assets/icon_clinical.png" alt="Clinical" class="w-16 h-16 object-contain" />
         </div>
@@ -416,7 +556,7 @@
       </div>
 
       <!-- Card 3 -->
-      <div class="bg-gray-50 p-8 rounded-2xl">
+      <div class="bg-gray-50 p-8 rounded-2xl reveal delay-200">
         <div class="mb-6 h-16 flex items-center">
           <img src="assets/icon_sync.png" alt="Sync" class="w-16 h-16 object-contain transform scale-125 origin-left" />
         </div>
@@ -430,7 +570,7 @@
       </div>
 
       <!-- Card 4 -->
-      <div class="bg-gray-50 p-8 rounded-2xl">
+      <div class="bg-gray-50 p-8 rounded-2xl reveal delay-300">
         <div class="mb-6 h-16 flex items-center">
           <img src="assets/icon_global.png" alt="Global" class="w-16 h-16 object-contain" />
         </div>
@@ -447,7 +587,7 @@
   </section>
 
   <!-- CTA SECTION -->
-  <section class="pt-4 pb-24 bg-white px-6">
+  <section id="cta" class="pt-4 pb-24 bg-white px-6 scroll-mt-32">
     <div class="max-w-7xl mx-auto">
       <div
         class="bg-gradient-to-r from-[#B9D9EB] to-[#92C5E7] rounded-[48px] px-12 lg:px-24 py-16 lg:py-16 relative overflow-hidden">
@@ -463,21 +603,23 @@
               Grow with us
             </span>
 
-            <h2 class="text-6xl font-normal text-black mb-4 leading-tight whitespace-nowrap">
+            <h2 class="text-6xl font-normal text-black mb-4 leading-tight whitespace-nowrap reveal">
               Ready to Download DrG?
             </h2>
 
-            <p class="font-serif text-xl text-navy/80 mb-8 leading-relaxed max-w-xl">
+            <p class="font-serif text-xl text-navy/80 mb-8 leading-relaxed max-w-xl reveal delay-100">
               Join thousands of healthcare professionals who rely on DrG mobile app for intelligent clinical decision
               support and enhanced patient care.
             </p>
 
-            <div class="flex items-center gap-4">
-              <a href="#" class="hover:opacity-80 transition">
+            <div class="flex items-center gap-4 reveal delay-200">
+              <a href="https://apps.apple.com/us/app/dr-g/id6756027530" target="_blank"
+                class="hover:opacity-80 transition">
                 <img src="https://upload.wikimedia.org/wikipedia/commons/3/3c/Download_on_the_App_Store_Badge.svg"
                   alt="Download on the App Store" class="h-20 w-auto" />
               </a>
-              <a href="#" class="hover:opacity-80 transition">
+              <a href="https://play.google.com/store/apps/details?id=com.onecellai.drg&hl=en_IN" target="_blank"
+                class="hover:opacity-80 transition">
                 <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg"
                   alt="Get it on Google Play" class="h-20 w-auto" />
               </a>
@@ -502,7 +644,7 @@
       <div class="grid md:grid-cols-4 gap-12">
 
         <!-- Brand Column -->
-        <div class="md:col-span-2">
+        <div class="md:col-span-2 reveal">
           <div class="mb-0">
             <p class="text-base text-muted leading-none mb-0">1Cell.Ai</p>
             <div class="text-8xl font-normal">
@@ -517,18 +659,20 @@
         </div>
 
         <!-- Mobile App Column -->
-        <div>
+        <div class="reveal delay-100">
           <h4 class="font-semibold text-black mb-4 text-2xl">Mobile App</h4>
           <ul class="space-y-3 text-base text-lg text-black">
-            <li><a href="#" class="hover:text-primary transition">iOS App</a></li>
-            <li><a href="#" class="hover:text-primary transition">Android App</a></li>
+            <li><a href="https://apps.apple.com/us/app/dr-g/id6756027530" target="_blank"
+                class="hover:text-primary transition">iOS App</a></li>
+            <li><a href="https://play.google.com/store/apps/details?id=com.onecellai.drg&hl=en_IN" target="_blank"
+                class="hover:text-primary transition">Android App</a></li>
             <li><a href="#" class="hover:text-primary transition">Features</a></li>
             <li><a href="#" class="hover:text-primary transition">System Requirements</a></li>
           </ul>
         </div>
 
         <!-- Support Column -->
-        <div>
+        <div class="reveal delay-200">
           <h4 class="font-semibold text-black mb-4 text-2xl">Support</h4>
           <ul class="space-y-3 text-base text-lg text-black">
             <li><a href="#" class="hover:text-primary transition">Help Center</a></li>
@@ -649,6 +793,65 @@
     </div>
   </footer>
 
+
+  <script>
+    // Intersection Observer for Scroll Reveal
+    const observerOptions = {
+      threshold: 0.1
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('active');
+        }
+      });
+    }, observerOptions);
+
+    document.querySelectorAll('.reveal, .reveal-left, .reveal-right').forEach(el => {
+      observer.observe(el);
+    });
+
+    // Animation Replay on Navbar Click
+    document.querySelectorAll('header a[href^="#"]').forEach(link => {
+      link.addEventListener('click', function (e) {
+        const targetId = this.getAttribute('href');
+
+        // Skip for Hero/Home section as requested
+        if (targetId === '#home' || targetId === '#') return;
+
+        const targetSection = document.querySelector(targetId);
+        if (!targetSection) return;
+
+        const animatedElements = targetSection.querySelectorAll('.reveal, .reveal-left, .reveal-right');
+
+        // Always reset animations for the target section
+        animatedElements.forEach(el => {
+          el.style.transition = 'none';
+          el.classList.remove('active');
+          void el.offsetWidth; // Force reflow
+          el.style.transition = '';
+        });
+
+        // Check if section is already visible in viewport
+        const rect = targetSection.getBoundingClientRect();
+        const windowHeight = (window.innerHeight || document.documentElement.clientHeight);
+        const isVisible = rect.top < windowHeight && rect.bottom > 0;
+
+        // If visible, trigger replay immediately. 
+        // If not, IntersectionObserver will handle it on scroll.
+        if (isVisible) {
+          requestAnimationFrame(() => {
+            requestAnimationFrame(() => {
+              animatedElements.forEach(el => {
+                el.classList.add('active');
+              });
+            });
+          });
+        }
+      });
+    });
+  </script>
 </body>
 
 </html>
